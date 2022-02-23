@@ -29,14 +29,23 @@
     <ClInclude Include="cloneable.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="duck_builder.h">
+    <ClInclude Include="batman_duck_builder.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="builder.h">
+    <ClInclude Include="duck_builder.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="spiderman_duck_builder.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="duck_director.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cache.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

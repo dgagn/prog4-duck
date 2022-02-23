@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "pch.h"
 #include "cloneable.h"
+#include "pch.h"
 
 class duck final : public cloneable<duck> {
 public:
@@ -10,7 +10,7 @@ public:
   void set_suit(const std::string& suit) { suit_ = suit; }
 
   void generate() {
-    constexpr int wait_time = 500;
+    constexpr int wait_time = 1000;
     printf("--- Starting the generation of the 3D model ... ---\n");
     std::stringstream ss;
     printf("Generation of the head ...\n");
@@ -29,9 +29,9 @@ public:
     printf("--- 3D model generated successfully ! ---\n");
   }
 
-  auto clone() const -> std::unique_ptr<duck> override { return std::make_unique<duck>(*this); }
+  std::unique_ptr<duck> clone() const override { return std::make_unique<duck>(*this); }
 
-  auto model() const -> std::string { return model_; }
+  std::string model() const { return model_; }
 private:
   std::string head_;
   std::string body_;

@@ -1,29 +1,21 @@
 ﻿#pragma once
+#include "duck.h"
 #include "pch.h"
-#include "builder.h"
 
-class duck_builder final : public builder {
-  std::shared_ptr<::duck> duck_ = std::make_shared<::duck>();
+class duck_builder {
 public:
-  auto build_head() -> builder* override {
-    duck_->set_head("batman head");
-    return this;
-  }
+  virtual ~duck_builder() = default;
 
-  auto build_body() -> builder* override {
-    duck_->set_body("batman body");
-    return this;
-  }
+  duck_builder() = default;
+  duck_builder(const duck_builder&) = delete;
+  auto operator=(const duck_builder&) -> duck_builder& = delete;
+  duck_builder(duck_builder&&) = delete;
+  auto operator=(duck_builder&&) -> duck_builder& = delete;
 
-  auto build_wings() -> builder* override {
-    duck_->set_wings("batman wings");
-    return this;
-  }
-
-  auto build_suit() -> builder* override {
-    duck_->set_suit("batman suit");
-    return this;
-  }
-
-  std::shared_ptr<::duck> duck() const noexcept override { return this->duck_; }
+  virtual auto name() -> std::string = 0;
+  virtual auto build_head() -> duck_builder* = 0;
+  virtual auto build_body() -> duck_builder* = 0;
+  virtual auto build_wings() -> duck_builder* = 0;
+  virtual auto build_suit() -> duck_builder* = 0;
+  virtual std::shared_ptr<duck> duck() const = 0;
 };
